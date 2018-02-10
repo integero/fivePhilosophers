@@ -2,30 +2,26 @@ package com.five_philosophers;
 
 class Fork {
     private Fork leftFork;
-    private int myNumber;
+    private int myNumber;       //  isn't necessary but let it be for future
     private boolean isBusy;
 
-    public Fork(int myNumber) {
+    Fork(int myNumber) {
         this.myNumber = myNumber;
     }
 
-    public void setLeftFork(Fork leftFork) {
+    void setLeftFork(Fork leftFork) {
         this.leftFork = leftFork;
     }
 
-    public void setBusy(boolean busy) {
+    void setBusy(boolean busy) {
         isBusy = busy;
     }
 
-    public Fork getLeftFork() {
+    Fork getLeftFork() {
         return leftFork;
     }
 
-    public int getMyNumber() {
-        return myNumber;
-    }
-
-    public boolean isBusy() {
+    boolean isBusy() {
         return isBusy;
     }
 }
