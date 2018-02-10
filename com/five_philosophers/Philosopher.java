@@ -12,28 +12,22 @@ public class Philosopher extends Thread {
     boolean haveLeftFork;
     boolean haveRightFork;
     boolean isSpeaking;
-    boolean isEating;
-//  Is't really in use. I'm care of it for the future.
-    boolean isWaiting;
 
-    public Philosopher(int timeForSpeech, int timeForEat, int timeForWait, int quantityOfApproaches, boolean isWaiting) {
+    public Philosopher(int timeForSpeech, int timeForEat, int timeForWait, int quantityOfApproaches,boolean isSpeaking) {
 
         this.timeForSpeech = timeForSpeech;
         this.timeForEat = timeForEat;
         this.timeForWait = timeForWait;
         this.quantityOfApproaches = quantityOfApproaches;
-        isEating = false;
-        isSpeaking = !isWaiting;
+        this.isSpeaking = isSpeaking;
     }
 
     void haveBanquet() throws InterruptedException {
         for (int i = 0; i < quantityOfApproaches; i++) {
             Sout.prnt(myNumber, "-" + i);
 //          may be I want to speak a little
-            if (isSpeaking)
-                Thread.sleep(timeForSpeech);
+            if (isSpeaking)  Thread.sleep(timeForSpeech);
 //          I had speaking and now I want to eat
-            isWaiting = true;
             isSpeaking = false;
             int nT = 0;             //  for log printing
             while (true) {
@@ -56,12 +50,9 @@ public class Philosopher extends Thread {
             Sout.prnt(myNumber, nT + "*" + i);
 //          When I'm eating I'm not speaking & hearing
             isSpeaking = false;
-            isWaiting = false;
-            isEating = true;
 //          It's wonderfull
             Thread.sleep(timeForEat);
 //          After have a good food I'm don't against to speak
-            isEating = false;
             isSpeaking = true;
 //          I'll must return all forks
             leftFork.setBusy(false);
