@@ -1,8 +1,7 @@
-package five_philosofers;
+package com.five_philosophers;
 
 public class Fork {
     Fork leftFork = null;
-    Fork rightFork = null;
     int myNumber = -1;
     boolean isBusy = false;
 }
