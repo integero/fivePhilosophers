@@ -11,10 +11,10 @@ public class FiveOClock {
 
         Philosopher tmpPH;
         Fork tmpF;
-        for (int i = 0; i < forks.amountOfForks; i++) {
+        for (int i = 0; i < 5; i++) {
             tmpF = forks.leftAndGet();
             tmpPH = new Philosopher(timeForSpeech, timeForEat, timeForWait, quantityOfApproachs, isWaiting);
-            tmpPH.leftFork = tmpF.leftFork;
+            tmpPH.leftFork = tmpF.getLeftFork();
             tmpPH.rightFork = tmpF;
             tmpPH.myNumber = i;
             philosophers.add(tmpPH);

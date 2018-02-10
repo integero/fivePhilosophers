@@ -38,15 +38,15 @@ public class Philosopher extends Thread {
             int nT = 0;             //  for log printing
             while (true) {
                 nT++;
-                if (!leftFork.isBusy) {//   If the leftFrork isn't busy I take it
-                    leftFork.isBusy = true;
+                if (!leftFork.isBusy()) {//   If the leftFrork isn't busy I take it
+                    leftFork.setBusy(true);
                     haveLeftFork = true;
-                    if (!rightFork.isBusy) {//  If the rightFork isn't busy I take it
-                        rightFork.isBusy = true;
+                    if (!rightFork.isBusy()) {//  If the rightFork isn't busy I take it
+                        rightFork.setBusy(true);
                         haveRightFork = true;
                         break;//    & I'll try enjoy by eat
                     } else {//  I put down leftFork if rightFork is busy
-                        leftFork.isBusy = false;
+                        leftFork.setBusy(false);
                         haveLeftFork = false;
                     }
                 }
@@ -64,8 +64,8 @@ public class Philosopher extends Thread {
             isEating = false;
             isSpeaking = true;
 //          I'll must return all forks
-            leftFork.isBusy = false;
-            rightFork.isBusy = false;
+            leftFork.setBusy(false);
+            rightFork.setBusy(false);
             haveLeftFork = false;
             haveRightFork = false;
 //          & after returning forks I'll go to discuss

@@ -1,19 +1,18 @@
 package com.five_philosophers;
 //  cyclic one-left-directional enumerated list of forks
 public class SetOfForks {
-    volatile Fork currentFork;
-    public int amountOfForks;
+    private volatile Fork currentFork;
+//    int amountOfForks;
 
     public SetOfForks() {
-        this.currentFork = new Fork();
-        currentFork.leftFork = currentFork;
-        currentFork.myNumber = 0;
-        amountOfForks = 5;
+//        amountOfForks = 5;
+        this.currentFork = new Fork(0);
+        currentFork.setLeftFork(currentFork);
         for (int i = 1; i < 5; i++) {
-            Fork nf = new Fork();
-            nf.leftFork = currentFork.leftFork;
-            nf.myNumber = i;
-            currentFork.leftFork = nf;
+//        for (int i = 1; i < amountOfForks; i++) {
+            Fork nf = new Fork(i);
+            nf.setLeftFork(currentFork.getLeftFork());
+            currentFork.setLeftFork(nf);
         }
     }
 
@@ -22,7 +21,7 @@ public class SetOfForks {
     }
 
     Fork leftAndGet() {
-        currentFork = currentFork.leftFork;
+        currentFork = currentFork.getLeftFork();
         return currentFork;
     }
 
