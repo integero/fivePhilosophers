@@ -1,5 +1,5 @@
 package com.five_philosophers;
-
+//  cyclic one-left-directional enumerated list of forks
 public class SetOfForks {
     volatile Fork currentFork;
     public int amountOfForks;

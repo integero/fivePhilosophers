@@ -7,13 +7,13 @@ public class FiveOClock {
     Set<Philosopher> philosophers = new HashSet<>();
     volatile SetOfForks forks = new SetOfForks();
 
-    public FiveOClock(int timeForSpeech, int timeForEat, int timeForWait, int quavolityOfApproachs, boolean isWaiting) {
+    public FiveOClock(int timeForSpeech, int timeForEat, int timeForWait, int quantityOfApproachs, boolean isWaiting) {
 
         Philosopher tmpPH;
         Fork tmpF;
         for (int i = 0; i < forks.amountOfForks; i++) {
             tmpF = forks.leftAndGet();
-            tmpPH = new Philosopher(timeForSpeech, timeForEat, timeForWait, quavolityOfApproachs, isWaiting);
+            tmpPH = new Philosopher(timeForSpeech, timeForEat, timeForWait, quantityOfApproachs, isWaiting);
             tmpPH.leftFork = tmpF.leftFork;
             tmpPH.rightFork = tmpF;
             tmpPH.myNumber = i;

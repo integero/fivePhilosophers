@@ -1,12 +1,12 @@
 package com.five_philosophers;
 
 public class Philosopher extends Thread {
-//  I think all parameters may be understandable by its names
+//  I think that nearly all parameters may be understandable by its names
     int myNumber;
     int timeForSpeech;
     int timeForEat;
-    int timeForWait;
-    int quantityOfApproaches;
+    int timeForWait;            //  between attempt to take the forks
+    int quantityOfApproaches;   //  quantity of plates with spaghetti
     Fork leftFork = null;
     Fork rightFork = null;
     boolean haveLeftFork;
@@ -35,7 +35,7 @@ public class Philosopher extends Thread {
 //          I had speaking and now I want to eat
             isWaiting = true;
             isSpeaking = false;
-            int nT = 0;
+            int nT = 0;             //  for log printing
             while (true) {
                 nT++;
                 if (!leftFork.isBusy) {//   If the leftFrork isn't busy I take it
