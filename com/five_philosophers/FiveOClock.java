@@ -6,7 +6,7 @@ import java.util.Set;
 class FiveOClock {
     private Set<Philosopher> philosophers = new HashSet<>();
     private volatile SetOfForks forks = new SetOfForks();
-
+//  All Philosophers are clones nay but they can be different
     FiveOClock(int timeForSpeech, int timeForEat, int timeForWait, int quantityOfApproachs) {
 
         Philosopher tmpPH;
